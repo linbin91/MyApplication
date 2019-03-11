@@ -1,7 +1,6 @@
 package com.lin.myapplication.register;
 
 import android.content.Context;
-import android.widget.Toast;
 
 import com.lin.myapplication.base.BasePresenter;
 import com.lin.myapplication.net.ApiService;
@@ -32,7 +31,7 @@ public class RegisterActivityImp extends BasePresenter<RegisterActivityContract.
 
                     @Override
                     public void onSuccess(BaseResponseEntity response) {
-                        Toast.makeText(mContext,"Success",Toast.LENGTH_SHORT).show();
+                        mView.registerSuccess();
                     }
                 });
     }

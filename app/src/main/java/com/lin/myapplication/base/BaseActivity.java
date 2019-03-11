@@ -22,16 +22,15 @@ public abstract class BaseActivity <T extends BaseContract.BasePresenter> extend
             setContentView(getLayoutId());
         }
         ButterKnife.bind(this);
-        attachView();
         initView();
         initData();
         applyEvent();
     }
 
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        detachView();
     }
 
     /**
@@ -55,6 +54,19 @@ public abstract class BaseActivity <T extends BaseContract.BasePresenter> extend
      */
     protected void applyEvent(){}
 
+    protected abstract void initPresenter();
+
+    @Override
+    public void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        attachView();
+    }
+
+    @Override
+    public void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        detachView();
+    }
 
     /**
      * 贴上view

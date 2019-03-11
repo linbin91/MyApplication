@@ -34,6 +34,11 @@ public class RegisterActivity extends BaseActivity<RegisterActivityImp> implemen
     protected void initData() {
         mTitle.setText(R.string.register);
         mBack.setVisibility(View.VISIBLE);
+
+    }
+
+    @Override
+    protected void initPresenter() {
         mPresenter = new RegisterActivityImp(this);
     }
 
